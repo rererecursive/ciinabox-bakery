@@ -18,13 +18,22 @@
     "ssh_timeout":"{{ user `ssh_timeout`}}",
     "run_tags": {
       "Name": "Packer {{ user `ami_name` }} (Amazon Linux)",
-      "BuildNumber": "{{ user `build_no`}}",
-      "BuildSHA": "{{ user `build_sha`}}",
+      "SourceAMI": "{{ .SourceAMI  }}",
+      "SourceAMIName": "{{ .SourceAMIName  }}",
+      "BuildNumber": "{{ user `build_id`}}",
+      "ChefRepoCommit": "{{ user `chef_repo_commit`  }}",
+      "ChefRepoBranch": "{{ user `chef_repo_branch` }}",
+      "PackerTemplateName": "{{ user `template_name` }}",
       "Status": "Baking"
     },
     "tags": {
       "Name": "{{ user `ami_name` }}",
-      "BuildId": "{{ user `build_id`}}",
+      "SourceAMI": "{{ .SourceAMI  }}",
+      "SourceAMIName": "{{ .SourceAMIName  }}",
+      "BuildNumber": "{{ user `build_id`}}",
+      "ChefRepoCommit": "{{ user `chef_repo_commit`  }}",
+      "ChefRepoBranch": "{{ user `chef_repo_branch` }}",
+      "PackerTemplateName": "{{ user `template_name` }}",
       "Status": "Baked"
     },
     "ami_block_device_mappings": [ {
@@ -107,6 +116,9 @@
     "build_sha": "",
     "chef_run_list":"",
     "chef_version":"latest",
+    "chef_repo_branch": "",
+    "chef_repo_commit": "",
+    "template_name": "amz_ebs_ami.json",
     "ami_regions":"",
     "ami_users":"",
     "packer_role":"packer",
