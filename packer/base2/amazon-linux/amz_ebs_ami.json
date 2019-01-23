@@ -102,6 +102,13 @@
       }
     }
   ],
+  "post-processors": [
+    {
+      "type": "manifest",
+      "output": "artifacts.json",
+      "strip_path": true
+    }
+  ],
   "variables": {
     "access_key": "",
     "secret_key": "",
