@@ -1,6 +1,7 @@
 {
   "builders": [{
     "type": "amazon-ebs",
+    "name": "{{ user `client`}}-{{ user `role` }}-{{ isotime \"2006-12-31\" }}",
     "region": "{{ user `region` }}",
     "source_ami": "{{ user `source_ami` }}",
     "source_ami_filter": {
@@ -14,7 +15,7 @@
     },
     "instance_type": "{{ user `instance_type` }}",
     "iam_instance_profile":"{{ user `packer_instance_profile`}}",
-    "ami_name": "{{ user `client`}}-{{ user `role` }}-{{ isotime \"2006-12-31\" }}",
+    "ami_name": "{{ build_name }}",
     "ami_regions": "{{ user `ami_regions`}}",
     "ami_users": "{{ user `ami_users`}}",
     "access_key": "{{ user `access_key` }}",
